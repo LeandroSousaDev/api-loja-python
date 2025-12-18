@@ -1,8 +1,8 @@
 class Produto:
-    def __init__(self, nome, preco, estoque):
+    def __init__(self, nome, preco, quantidade):
         self.__nome = nome
         self.__preco = preco
-        self.__estoque = estoque
+        self.__quantidade = quantidade
 
     def get_nome(self):
         return self.__nome
@@ -17,14 +17,14 @@ class Produto:
         self.__preco = novo_preco
 
     def get_estoque(self):
-        return self.__estoque
+        return self.__quantidade
     
     def set_estoque(self, novo_valor):
-        self.__estoque = novo_valor
+        self.__quantidade = novo_valor
 
     def descricao(self):
         return "descrição generica"
     
-    def caucular_imposto(self, valor):
-        return self.__preco + valor
+    def caucular_desconto(self, valor):
+        return self.__preco - valor
     
