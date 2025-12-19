@@ -1,8 +1,16 @@
+from exceções import ErroNoValor
+
+
 class Produto:
-    def __init__(self, nome, preco, quantidade):
+    def __init__(self, nome, preco, estoque):
+
         self.__nome = nome
+        if preco < 0:
+            raise ErroNoValor("preço")
         self.__preco = preco
-        self.__quantidade = quantidade
+        if estoque < 0:
+            raise ErroNoValor("estoque")
+        self.__estoque = estoque
 
     def get_nome(self):
         return self.__nome
@@ -17,14 +25,10 @@ class Produto:
         self.__preco = novo_preco
 
     def get_estoque(self):
-        return self.__quantidade
-    
-    def set_estoque(self, novo_valor):
-        self.__quantidade = novo_valor
+        return self.__estoque
+
+    def set_estoque(self, novo_estoque):
+        self.__estoque = novo_estoque
 
     def descricao(self):
         return "descrição generica"
-    
-    def caucular_desconto(self, valor):
-        return self.__preco - valor
-    
